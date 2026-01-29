@@ -1,4 +1,5 @@
 import { Star, Quote } from 'lucide-react';
+import testimonialsBg from '@/assets/testimonials-bg.jpg';
 
 const testimonials = [
   {
@@ -26,8 +27,18 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="depoimentos" className="section-padding bg-background">
-      <div className="container-custom">
+    <section id="depoimentos" className="section-padding relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={testimonialsBg} 
+          alt="Edifício comercial moderno" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/95" />
+      </div>
+      
+      <div className="container-custom relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">

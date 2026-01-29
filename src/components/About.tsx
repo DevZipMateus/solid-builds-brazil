@@ -1,4 +1,5 @@
 import { Target, Eye, Heart, CheckCircle2 } from 'lucide-react';
+import aboutBg from '@/assets/about-bg.jpg';
 
 const values = [
   { title: 'Qualidade técnica', description: 'Rigor técnico em todas as etapas da obra' },
@@ -11,8 +12,18 @@ const values = [
 
 export function About() {
   return (
-    <section id="sobre" className="section-padding bg-background">
-      <div className="container-custom">
+    <section id="sobre" className="section-padding relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={aboutBg} 
+          alt="Plantas de engenharia" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/95" />
+      </div>
+      
+      <div className="container-custom relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
