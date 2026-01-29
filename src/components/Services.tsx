@@ -11,31 +11,37 @@ const services = [
     icon: Building,
     title: 'Obras comerciais e industriais',
     description: 'Execução completa de obras comerciais e industriais, do planejamento à entrega final, com qualidade e prazo garantidos.',
+    whatsappMessage: 'Olá! Gostaria de saber mais sobre Obras Comerciais e Industriais. Podem me ajudar?',
   },
   {
     icon: Hammer,
     title: 'Fundações e infraestrutura',
     description: 'Projetos e execução de fundações sólidas e seguras, garantindo a base perfeita para qualquer tipo de construção.',
+    whatsappMessage: 'Olá! Gostaria de saber mais sobre Fundações e Infraestrutura. Podem me ajudar?',
   },
   {
     icon: Mountain,
     title: 'Contenções de encostas',
     description: 'Soluções técnicas para estabilização de encostas e taludes, prevenindo deslizamentos e erosões.',
+    whatsappMessage: 'Olá! Gostaria de saber mais sobre Contenções de Encostas. Podem me ajudar?',
   },
   {
     icon: Droplets,
     title: 'Obras de drenagem',
     description: 'Sistemas de drenagem eficientes para controle de águas pluviais e proteção de edificações.',
+    whatsappMessage: 'Olá! Gostaria de saber mais sobre Obras de Drenagem. Podem me ajudar?',
   },
   {
     icon: Factory,
     title: 'Estruturas de concreto armado',
     description: 'Execução de estruturas de concreto armado com alto padrão técnico e resistência comprovada.',
+    whatsappMessage: 'Olá! Gostaria de saber mais sobre Estruturas de Concreto Armado. Podem me ajudar?',
   },
   {
     icon: Wrench,
     title: 'Estruturas metálicas',
     description: 'Fabricação e montagem de estruturas metálicas para galpões, coberturas e edificações industriais.',
+    whatsappMessage: 'Olá! Gostaria de saber mais sobre Estruturas Metálicas. Podem me ajudar?',
   },
 ];
 
@@ -77,22 +83,32 @@ export function Services() {
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
+            const whatsappUrl = `https://wa.me/5551995756460?text=${encodeURIComponent(service.whatsappMessage)}`;
             return (
               <StaggerItem key={index}>
-                <AnimatedCard className="group bg-background rounded-2xl p-8 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-solid-lg h-full">
-                  <motion.div 
-                    className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-300"
-                    whileHover={{ scale: 1.15, rotate: 5 }}
-                  >
-                    <Icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
-                  </motion.div>
-                  <h3 className="font-display text-xl font-bold text-foreground mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
-                </AnimatedCard>
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <AnimatedCard className="group bg-background rounded-2xl p-8 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-solid-lg h-full cursor-pointer">
+                    <motion.div 
+                      className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-300"
+                      whileHover={{ scale: 1.15, rotate: 5 }}
+                    >
+                      <Icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                    </motion.div>
+                    <h3 className="font-display text-xl font-bold text-foreground mb-3">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-4">
+                      {service.description}
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-primary text-sm font-medium group-hover:underline">
+                      Saiba mais →
+                    </span>
+                  </AnimatedCard>
+                </a>
               </StaggerItem>
             );
           })}
