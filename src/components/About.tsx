@@ -20,7 +20,7 @@ export function About() {
           alt="Plantas de engenharia" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-background/95" />
+        <div className="absolute inset-0 bg-background/85" />
       </div>
       
       <div className="container-custom relative z-10">
