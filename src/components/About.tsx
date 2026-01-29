@@ -1,5 +1,6 @@
 import { Target, Eye, Heart, CheckCircle2 } from 'lucide-react';
 import aboutBg from '@/assets/about-bg.jpg';
+import aboutTeam from '@/assets/about-team.jpg';
 
 const values = [
   { title: 'Qualidade técnica', description: 'Rigor técnico em todas as etapas da obra' },
@@ -39,7 +40,7 @@ export function About() {
         </div>
 
         {/* History */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-20">
+        <div className="grid lg:grid-cols-2 gap-12 mb-20 items-center">
           <div className="space-y-6">
             <h3 className="font-display text-2xl font-bold text-foreground">
               Nossa história
@@ -58,7 +59,20 @@ export function About() {
             </p>
           </div>
 
+          {/* Team Image */}
           <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 to-primary/10 rounded-2xl blur-xl" />
+            <img 
+              src={aboutTeam} 
+              alt="Equipe de engenheiros analisando projeto em canteiro de obras" 
+              className="relative w-full h-auto rounded-2xl shadow-solid-lg object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Market */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-20 items-center">
+          <div className="lg:order-2 relative">
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-primary/5 rounded-2xl blur-xl" />
             <div className="relative bg-secondary/50 rounded-2xl p-8 border border-border">
               <h3 className="font-display text-2xl font-bold text-foreground mb-6">

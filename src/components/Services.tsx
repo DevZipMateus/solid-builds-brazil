@@ -1,5 +1,8 @@
 import { Building, Hammer, Factory, Wrench, Mountain, Droplets } from 'lucide-react';
 import servicesBg from '@/assets/services-bg.jpg';
+import serviceFoundation from '@/assets/service-foundation.jpg';
+import serviceSteel from '@/assets/service-steel.jpg';
+import serviceConcrete from '@/assets/service-concrete.jpg';
 
 const services = [
   {
@@ -83,6 +86,40 @@ export function Services() {
               </div>
             );
           })}
+        </div>
+
+        {/* Image Gallery */}
+        <div className="mt-16 grid md:grid-cols-3 gap-6">
+          <div className="relative overflow-hidden rounded-2xl group">
+            <img 
+              src={serviceFoundation} 
+              alt="Obra de fundação com armação de ferro e concreto" 
+              className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-accent/80 to-transparent flex items-end p-6">
+              <span className="text-white font-semibold">Fundações</span>
+            </div>
+          </div>
+          <div className="relative overflow-hidden rounded-2xl group">
+            <img 
+              src={serviceSteel} 
+              alt="Estrutura metálica em construção" 
+              className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-accent/80 to-transparent flex items-end p-6">
+              <span className="text-white font-semibold">Estruturas metálicas</span>
+            </div>
+          </div>
+          <div className="relative overflow-hidden rounded-2xl group">
+            <img 
+              src={serviceConcrete} 
+              alt="Estrutura de concreto armado" 
+              className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-accent/80 to-transparent flex items-end p-6">
+              <span className="text-white font-semibold">Concreto armado</span>
+            </div>
+          </div>
         </div>
 
         {/* Additional Service */}
