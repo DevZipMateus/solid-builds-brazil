@@ -1,9 +1,20 @@
 import { MapPin, Phone, Mail, Clock, Instagram } from 'lucide-react';
+import contactBg from '@/assets/contact-bg.jpg';
 
 export function Contact() {
   return (
-    <section id="contato" className="section-padding bg-secondary/30">
-      <div className="container-custom">
+    <section id="contato" className="section-padding relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={contactBg} 
+          alt="Obra de fundação" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/95" />
+      </div>
+      
+      <div className="container-custom relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">

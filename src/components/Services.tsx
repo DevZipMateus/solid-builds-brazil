@@ -1,4 +1,5 @@
 import { Building, Hammer, Factory, Wrench, Mountain, Droplets } from 'lucide-react';
+import servicesBg from '@/assets/services-bg.jpg';
 
 const services = [
   {
@@ -35,8 +36,18 @@ const services = [
 
 export function Services() {
   return (
-    <section id="servicos" className="section-padding bg-secondary/30">
-      <div className="container-custom">
+    <section id="servicos" className="section-padding relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={servicesBg} 
+          alt="Galpão industrial com estrutura metálica" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-secondary/95" />
+      </div>
+      
+      <div className="container-custom relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
