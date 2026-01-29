@@ -1,9 +1,16 @@
-import { MapPin, Phone, Mail, Clock, Instagram } from 'lucide-react';
+import { MapPin, Mail, Clock, Instagram, LucideIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import contactBg from '@/assets/contact-bg.jpg';
+import whatsappIcon from '@/assets/whatsapp-icon.png';
 import { AnimatedSection, AnimatedCard } from './AnimatedSection';
 
-const contactInfo = [
+interface ContactInfoItem {
+  icon: LucideIcon | 'whatsapp';
+  title: string;
+  content: React.ReactNode;
+}
+
+const contactInfo: ContactInfoItem[] = [
   {
     icon: MapPin,
     title: 'Endereço',
@@ -16,7 +23,7 @@ const contactInfo = [
     ),
   },
   {
-    icon: Phone,
+    icon: 'whatsapp',
     title: 'Telefone / WhatsApp',
     content: (
       <a 
@@ -58,6 +65,14 @@ const contactInfo = [
   },
 ];
 
+function ContactIcon({ icon }: { icon: LucideIcon | 'whatsapp' }) {
+  if (icon === 'whatsapp') {
+    return <img src={whatsappIcon} alt="WhatsApp" className="w-6 h-6" />;
+  }
+  const Icon = icon;
+  return <Icon className="w-6 h-6 text-primary" />;
+}
+
 export function Contact() {
   return (
     <section id="contato" className="section-padding relative overflow-hidden">
@@ -94,32 +109,29 @@ export function Contact() {
               </h3>
 
               <div className="space-y-6">
-                {contactInfo.map((item, index) => {
-                  const Icon = item.icon;
-                  return (
+                {contactInfo.map((item, index) => (
+                  <motion.div 
+                    key={index}
+                    className="flex items-start gap-4"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.4 }}
+                    whileHover={{ x: 8 }}
+                  >
                     <motion.div 
-                      key={index}
-                      className="flex items-start gap-4"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1, duration: 0.4 }}
-                      whileHover={{ x: 8 }}
+                      className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0"
+                      whileHover={{ scale: 1.1, backgroundColor: 'hsl(var(--primary) / 0.2)' }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <motion.div 
-                        className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0"
-                        whileHover={{ scale: 1.1, backgroundColor: 'hsl(var(--primary) / 0.2)' }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <Icon className="w-6 h-6 text-primary" />
-                      </motion.div>
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">{item.title}</h4>
-                        <p className="text-muted-foreground">{item.content}</p>
-                      </div>
+                      <ContactIcon icon={item.icon} />
                     </motion.div>
-                  );
-                })}
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">{item.title}</h4>
+                      <p className="text-muted-foreground">{item.content}</p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
 
               {/* CTA Button */}
@@ -132,7 +144,7 @@ export function Contact() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Phone className="w-5 h-5" />
+                  <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
                   Falar pelo WhatsApp
                 </motion.a>
               </div>
