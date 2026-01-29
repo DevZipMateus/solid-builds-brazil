@@ -1,5 +1,4 @@
 import { useEffect, useRef, ReactNode } from 'react';
-
 interface ScrollRevealProps {
   children: ReactNode;
   animation?: 'fade-up' | 'fade-left' | 'fade-right' | 'scale';
