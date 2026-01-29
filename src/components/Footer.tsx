@@ -1,4 +1,5 @@
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Mail } from 'lucide-react';
+import whatsappIcon from '@/assets/whatsapp-icon.png';
 
 const quickLinks = [
   { label: 'Início', href: '#inicio' },
@@ -90,7 +91,7 @@ export function Footer() {
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
+                <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 flex-shrink-0" />
                 <a 
                   href="https://wa.me/5551995756460"
                   target="_blank"
