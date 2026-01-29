@@ -44,7 +44,7 @@ export function Services() {
           alt="Galpão industrial com estrutura metálica" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-secondary/95" />
+        <div className="absolute inset-0 bg-secondary/85" />
       </div>
       
       <div className="container-custom relative z-10">
