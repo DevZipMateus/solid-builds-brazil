@@ -125,7 +125,7 @@ export function Contact() {
           <div className="card-elevated overflow-hidden">
             <iframe
               title="Localização Solid Engenharia"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3458.234!2d-51.2834!3d-29.8553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDUxJzE5LjAiUyA1McKwMTYnNTkuMSJX!5e0!3m2!1spt-BR!2sbr!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.8!2d-51.2847!3d-29.8547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95194a0a0a0a0a0a%3A0x0!2sRua%20do%20Ip%C3%AA%2C%201792%20-%20Berto%20Cirio%2C%20Nova%20Santa%20Rita%20-%20RS%2C%2092480-000!5e0!3m2!1spt-BR!2sbr!4v1706540000000!5m2!1spt-BR!2sbr"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: '500px' }}
