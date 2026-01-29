@@ -24,10 +24,13 @@ export function Hero() {
             </span>
           </div>
 
-          {/* H1 - Company Name */}
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 animate-slide-up">
-            Solid Engenharia
-          </h1>
+          {/* H1 - Hidden for SEO, Logo visible */}
+          <h1 className="sr-only">Solid Engenharia</h1>
+          <img 
+            src="/logo.png" 
+            alt="Solid Engenharia" 
+            className="h-20 md:h-28 lg:h-36 w-auto mx-auto mb-6 animate-slide-up brightness-0 invert"
+          />
 
           {/* H2 - Slogan */}
           <h2 className="text-xl md:text-2xl lg:text-3xl text-white/90 font-medium mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up">
