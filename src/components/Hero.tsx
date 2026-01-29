@@ -1,12 +1,23 @@
 import { ArrowRight, Building2, HardHat, Shield } from 'lucide-react';
+import heroBg from '@/assets/hero-bg.jpg';
 
 export function Hero() {
   return (
     <section
       id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ background: 'var(--gradient-hero)' }}
     >
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={heroBg} 
+          alt="Obra industrial em construção" 
+          className="w-full h-full object-cover"
+        />
+        {/* Dark overlay with purple tint */}
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/90 via-accent/80 to-primary/70" />
+      </div>
+
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-64 h-64 border border-white/30 rounded-full" />
