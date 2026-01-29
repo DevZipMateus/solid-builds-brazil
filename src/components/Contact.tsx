@@ -1,5 +1,62 @@
 import { MapPin, Phone, Mail, Clock, Instagram } from 'lucide-react';
+import { motion } from 'framer-motion';
 import contactBg from '@/assets/contact-bg.jpg';
+import { AnimatedSection, AnimatedCard } from './AnimatedSection';
+
+const contactInfo = [
+  {
+    icon: MapPin,
+    title: 'Endereço',
+    content: (
+      <>
+        Rua do Ipê, nº 1792<br />
+        Bairro Berto Círio<br />
+        Nova Santa Rita/RS - CEP: 92480-000
+      </>
+    ),
+  },
+  {
+    icon: Phone,
+    title: 'Telefone / WhatsApp',
+    content: (
+      <a 
+        href="https://wa.me/5551995756460"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-primary hover:underline"
+      >
+        (51) 99575-6460
+      </a>
+    ),
+  },
+  {
+    icon: Mail,
+    title: 'E-mail',
+    content: (
+      <a 
+        href="mailto:comercial@solidobraselocacoes.com.br"
+        className="text-primary hover:underline"
+      >
+        comercial@solidobraselocacoes.com.br
+      </a>
+    ),
+  },
+  {
+    icon: Clock,
+    title: 'Horário de funcionamento',
+    content: (
+      <>
+        Segunda a sexta-feira<br />
+        07:30 às 17:18
+      </>
+    ),
+  },
+  {
+    icon: Instagram,
+    title: 'Redes sociais',
+    content: '@Solid Engenharia & Estruturas',
+  },
+];
 
 export function Contact() {
   return (
@@ -16,7 +73,7 @@ export function Contact() {
       
       <div className="container-custom relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             Contato
           </span>
@@ -26,125 +83,97 @@ export function Contact() {
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
             Estamos prontos para atender seu projeto. Entre em contato e solicite um orçamento sem compromisso.
           </p>
-        </div>
+        </AnimatedSection>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
-          <div className="space-y-8">
-            <div className="card-elevated p-8">
+          <AnimatedSection className="space-y-8">
+            <AnimatedCard className="card-elevated p-8">
               <h3 className="font-display text-xl font-bold text-foreground mb-6">
                 Informações de contato
               </h3>
 
               <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Endereço</h4>
-                    <p className="text-muted-foreground">
-                      Rua do Ipê, nº 1792<br />
-                      Bairro Berto Círio<br />
-                      Nova Santa Rita/RS - CEP: 92480-000
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Telefone / WhatsApp</h4>
-                    <a 
-                      href="https://wa.me/5551995756460"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline"
+                {contactInfo.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.div 
+                      key={index}
+                      className="flex items-start gap-4"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1, duration: 0.4 }}
+                      whileHover={{ x: 8 }}
                     >
-                      (51) 99575-6460
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">E-mail</h4>
-                    <a 
-                      href="mailto:comercial@solidobraselocacoes.com.br"
-                      className="text-primary hover:underline"
-                    >
-                      comercial@solidobraselocacoes.com.br
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Horário de funcionamento</h4>
-                    <p className="text-muted-foreground">
-                      Segunda a sexta-feira<br />
-                      07:30 às 17:18
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Instagram className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Redes sociais</h4>
-                    <p className="text-muted-foreground">
-                      @Solid Engenharia & Estruturas
-                    </p>
-                  </div>
-                </div>
+                      <motion.div 
+                        className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0"
+                        whileHover={{ scale: 1.1, backgroundColor: 'hsl(var(--primary) / 0.2)' }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Icon className="w-6 h-6 text-primary" />
+                      </motion.div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-1">{item.title}</h4>
+                        <p className="text-muted-foreground">{item.content}</p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
 
               {/* CTA Button */}
               <div className="mt-8 pt-6 border-t border-border">
-                <a
+                <motion.a
                   href="https://wa.me/5551995756460"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary w-full flex items-center justify-center gap-2"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <Phone className="w-5 h-5" />
                   Falar pelo WhatsApp
-                </a>
+                </motion.a>
               </div>
-            </div>
+            </AnimatedCard>
 
             {/* Company Info */}
-            <div className="bg-accent text-accent-foreground rounded-2xl p-6">
-              <p className="text-sm">
-                <strong>Solid Engenharia & Estruturas LTDA</strong><br />
-                CNPJ: 30.161.678/0001-17
-              </p>
-            </div>
-          </div>
+            <AnimatedSection delay={0.3}>
+              <motion.div 
+                className="bg-accent text-accent-foreground rounded-2xl p-6"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <p className="text-sm">
+                  <strong>Solid Engenharia & Estruturas LTDA</strong><br />
+                  CNPJ: 30.161.678/0001-17
+                </p>
+              </motion.div>
+            </AnimatedSection>
+          </AnimatedSection>
 
           {/* Map */}
-          <div className="card-elevated overflow-hidden">
-            <iframe
-              title="Localização Solid Engenharia"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.8!2d-51.2847!3d-29.8547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95194a0a0a0a0a0a%3A0x0!2sRua%20do%20Ip%C3%AA%2C%201792%20-%20Berto%20Cirio%2C%20Nova%20Santa%20Rita%20-%20RS%2C%2092480-000!5e0!3m2!1spt-BR!2sbr!4v1706540000000!5m2!1spt-BR!2sbr"
-              width="100%"
-              height="100%"
-              style={{ border: 0, minHeight: '500px' }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
+          <AnimatedSection delay={0.2}>
+            <motion.div 
+              className="card-elevated overflow-hidden h-full"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <iframe
+                title="Localização Solid Engenharia"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.8!2d-51.2847!3d-29.8547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95194a0a0a0a0a0a%3A0x0!2sRua%20do%20Ip%C3%AA%2C%201792%20-%20Berto%20Cirio%2C%20Nova%20Santa%20Rita%20-%20RS%2C%2092480-000!5e0!3m2!1spt-BR!2sbr!4v1706540000000!5m2!1spt-BR!2sbr"
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: '500px' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </motion.div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
