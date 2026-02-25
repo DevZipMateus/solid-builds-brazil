@@ -1,7 +1,7 @@
 import { Target, Eye, Heart, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import aboutBg from '@/assets/about-bg.jpg';
-import aboutTeam from '@/assets/about-team.jpg';
+
 import { AnimatedSection, AnimatedCard, AnimatedImage, StaggerContainer, StaggerItem } from './AnimatedSection';
 
 const values = [
@@ -42,8 +42,8 @@ export function About() {
         </AnimatedSection>
 
         {/* History */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-12 sm:mb-20 items-center">
-          <AnimatedSection className="space-y-4 sm:space-y-6 order-2 lg:order-1">
+        <div className="mb-12 sm:mb-20 max-w-3xl">
+          <AnimatedSection className="space-y-4 sm:space-y-6">
             <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground">
               Nossa história
             </h3>
@@ -61,21 +61,6 @@ export function About() {
             </p>
           </AnimatedSection>
 
-          {/* Team Image */}
-          <AnimatedImage className="relative order-1 lg:order-2" delay={0.2}>
-            <motion.div 
-              className="absolute -inset-4 bg-gradient-to-r from-primary/30 to-primary/10 rounded-2xl blur-xl"
-              animate={{ scale: [1, 1.02, 1] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-            />
-            <motion.img 
-              src={aboutTeam} 
-              alt="Equipe de engenheiros analisando projeto em canteiro de obras" 
-              className="relative w-full h-48 sm:h-64 md:h-80 lg:h-auto rounded-2xl shadow-solid-lg object-cover"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.4 }}
-            />
-          </AnimatedImage>
         </div>
 
         {/* Market */}
