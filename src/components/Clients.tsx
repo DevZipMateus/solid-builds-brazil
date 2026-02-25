@@ -14,6 +14,8 @@ import b3 from '@/assets/clients/b3.png';
 import luagge from '@/assets/clients/luagge.png';
 import bine from '@/assets/clients/bine.png';
 import trinta from '@/assets/clients/30anos.png';
+import saojoao from '@/assets/clients/sao-joao.png';
+import lamb from '@/assets/clients/lamb.png';
 
 const clients = [
   { name: 'PampaRáfia', logo: pamparafia },
@@ -26,6 +28,8 @@ const clients = [
   { name: 'Luagge Imóveis', logo: luagge },
   { name: 'Bine Engenharia', logo: bine },
   { name: '30 Anos', logo: trinta },
+  { name: 'Farmácias São João', logo: saojoao },
+  { name: 'Lamb Engenharia', logo: lamb },
 ];
 
 // Duplicate for seamless infinite scroll
