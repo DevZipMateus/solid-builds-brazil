@@ -18,18 +18,18 @@ import saojoao from '@/assets/clients/sao-joao.png';
 import lamb from '@/assets/clients/lamb.png';
 
 const clients = [
-  { name: 'PampaRáfia', logo: pamparafia },
-  { name: 'Postos Pedrotti', logo: postospedrotti },
-  { name: 'GF', logo: gf },
-  { name: 'KAN Super & Atacado', logo: kan },
-  { name: 'Supermago', logo: supermago },
-  { name: 'Núcleo Arquitetura', logo: nucleo },
-  { name: 'B3', logo: b3 },
-  { name: 'Luagge Imóveis', logo: luagge },
-  { name: 'Bine Engenharia', logo: bine },
-  { name: '30 Anos', logo: trinta },
-  { name: 'Farmácias São João', logo: saojoao },
-  { name: 'Lamb Engenharia', logo: lamb },
+  { name: 'PampaRáfia', logo: pamparafia, dark: false },
+  { name: 'Postos Pedrotti', logo: postospedrotti, dark: false },
+  { name: 'GF', logo: gf, dark: false },
+  { name: 'KAN Super & Atacado', logo: kan, dark: false },
+  { name: 'Supermago', logo: supermago, dark: false },
+  { name: 'Núcleo Arquitetura', logo: nucleo, dark: true },
+  { name: 'B3', logo: b3, dark: false },
+  { name: 'Luagge Imóveis', logo: luagge, dark: false },
+  { name: 'Bine Engenharia', logo: bine, dark: false },
+  { name: '30 Anos', logo: trinta, dark: true },
+  { name: 'Farmácias São João', logo: saojoao, dark: false },
+  { name: 'Lamb Engenharia', logo: lamb, dark: false },
 ];
 
 
@@ -64,7 +64,7 @@ export function Clients() {
             <motion.button
               key={client.name}
               onClick={() => setExpandedLogo(client)}
-              className="w-full aspect-[4/3] flex items-center justify-center p-4 sm:p-5 rounded-xl bg-secondary/40 border border-border/50 hover:border-primary/40 hover:bg-secondary/70 transition-all cursor-pointer"
+              className={`w-full aspect-[4/3] flex items-center justify-center p-4 sm:p-5 rounded-xl border border-border/50 hover:border-primary/40 transition-all cursor-pointer ${client.dark ? 'bg-foreground/80 hover:bg-foreground/90' : 'bg-secondary/40 hover:bg-secondary/70'}`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
