@@ -32,8 +32,6 @@ const clients = [
   { name: 'Lamb Engenharia', logo: lamb },
 ];
 
-// Duplicate for seamless infinite scroll
-const duplicatedClients = [...clients, ...clients];
 
 export function Clients() {
   const [expandedLogo, setExpandedLogo] = useState<{ name: string; logo: string } | null>(null);
@@ -60,41 +58,24 @@ export function Clients() {
           </p>
         </AnimatedSection>
 
-        {/* Infinite Carousel */}
-        <div className="relative overflow-hidden py-8">
-          {/* Fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-background/90 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-background/90 to-transparent z-10 pointer-events-none" />
-
-          <motion.div
-            className="flex gap-8 sm:gap-12 lg:gap-16 items-center"
-            animate={{ x: ['0%', '-50%'] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: 'loop',
-                duration: 40,
-                ease: 'linear',
-              },
-            }}
-          >
-            {duplicatedClients.map((client, index) => (
-              <motion.button
-                key={`${client.name}-${index}`}
-                onClick={() => setExpandedLogo(client)}
-                className="flex-shrink-0 w-28 h-20 sm:w-36 sm:h-24 md:w-44 md:h-28 lg:w-52 lg:h-32 flex items-center justify-center p-3 sm:p-4 rounded-xl bg-secondary/40 border border-border/50 hover:border-primary/40 hover:bg-secondary/70 transition-all cursor-pointer"
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="max-w-full max-h-full object-contain"
-                  loading="lazy"
-                />
-              </motion.button>
-            ))}
-          </motion.div>
+        {/* Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 py-8">
+          {clients.map((client) => (
+            <motion.button
+              key={client.name}
+              onClick={() => setExpandedLogo(client)}
+              className="w-full aspect-[4/3] flex items-center justify-center p-4 sm:p-5 rounded-xl bg-secondary/40 border border-border/50 hover:border-primary/40 hover:bg-secondary/70 transition-all cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <img
+                src={client.logo}
+                alt={client.name}
+                className="max-w-full max-h-full object-contain"
+                loading="lazy"
+              />
+            </motion.button>
+          ))}
         </div>
 
         {/* CTA */}
